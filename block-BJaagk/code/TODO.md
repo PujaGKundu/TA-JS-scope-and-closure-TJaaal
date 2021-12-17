@@ -6,6 +6,15 @@ function percentage(marks, total) {
 }
 
 // Your code goes here
+let percentage = function (marks, total) {
+  return (marks * 100) / total;
+}
+
+let percentage = (marks, total) => {
+  return (marks * 100) / total;
+}
+
+
 ```
 
 2. Write Function Declaration or Function Expression next to the function.
@@ -14,34 +23,56 @@ function percentage(marks, total) {
 function percentage(marks, total) {
   return (marks * 100) / total;
 }
-// Your answer
+// Function Declaration
+
 ```
 
 ```js
 let percentage = function percentage(marks, total) {
   return (marks * 100) / total;
 };
+
+// Function Expression
 ```
 
 ```js
 let percentage = function (marks, total) {
   return (marks * 100) / total;
 };
+
+// Function Expression
 ```
 
 ```js
 let percentage = (marks, total) => {
   return (marks * 100) / total;
 };
+
+// Function Expression
 ```
 
 ```js
 let percentage = (marks, total) => (marks * 100) / total;
+
+// Function Expression
 ```
 
 3. Why is a function definition an expression in JavaScript? Give one example of function expression.
+If a function is first defined and then called it's known as function declaration, whereas if a function is stored in a variable in an expression form it's known as function expression.
+
+```js
+function square (num) {
+  return num * num;
+} //Function Declaration
+
+let square = function (num) {
+  return num * num;
+} //Function Expression
+```
 
 4. Why is a function call an expression in JavaScript?
+As function is an object in JavaScript. Thus, if a function is stored in a variable in an expression form it's known as function expression. 
+
 
 5. Write VALID and INVALID next to each example below with the reason.
 
@@ -50,17 +81,28 @@ function add(a, b) {
   return a + b;
 }
 
-let five = add(2, 3); // Answer
-five = add; // Answer
-five = five(10, 11); // Answer
+let five = add(2, 3); // Valid (as the function is been called with parameters)
+five = add; // Valid (as the function is not been called with parameters, it's a function reference)
+five = five(10, 11); // Valid (as the function is been called with parameters, also the variable five is already reclared to store the value)
 five = function () {
   return 'Hello';
-}; // Answer
+}; // Valid (as it is a function expression)
 ```
 
 6. What is the difference between function definition and function call? Explain with an example.
+Function defination is when we define a function and function call is when we execute the function.
+
+```js
+function add (num1, num2) {
+  return num1 + num2;
+} // Function Defination
+
+add (2,6); // Function call
+```
+
 
 7. What is the similarities between function definition and function call?
+Similarty is execution of a function.
 
 8. Is the code below valid or invalid. Explain with reason.
 
@@ -69,9 +111,31 @@ function hello() {
   console.log('Hello World!');
 }
 
-hello.user = 'Sam'; // valid or invalid
+hello.user = 'Sam'; // valid (As function is an object in JavaScript)
 ```
 
 9. What is higher order function explain with an example.
+When a function defination is been passed but not a function call inside another function it is a higher order function.
+```js
+let number = [1, 2, 3, 4, 5, 6];
+let isEven = (num) => {
+  return num % 2 === 0;
+}
+let isOdd = (num) => {
+  return num % 2 !== 0;
+}
+function filter (arr, cb) {
+  let array = [];
+  for (let i of arr) {
+    if (cb(i)) {
+      array.push(i);
+    }
+  }
+  return array;
+}
+console.log(filter(number, isOdd));
+console.log(filter(number, isEven));
+```
 
 10. Explain what is callback function. Why you can pass a function inside a function?
+A function that is passed a a parameter to a higher order function is known as a callback function. As function is an object in JavaScript and object is an expression, thus, a function can be passed inside a function.
