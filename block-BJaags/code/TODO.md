@@ -67,3 +67,5 @@ let counter = function () {
   return increment();
 };
 ```
+
+![](./img/Ass.png)
