@@ -6,9 +6,9 @@
 
 ```js
 function forEach(arr, cb) {
-  for (let data of arr) {
-    cb(data);
-  }
+  arr.reduce((acc, cv, index, arr) => {
+    cb(cv, index, arr);
+  });
 }
 
 forEach(['Sam', 'Jon', 'Arya'], (name, i, arr) =>
