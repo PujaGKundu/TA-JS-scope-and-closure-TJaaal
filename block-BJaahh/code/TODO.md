@@ -34,7 +34,10 @@ const final = name('Smith'); // final should be "Will Smith"
 function isInBetween(a, b) {
   // your code goes here
   return function (num) {
-    return (a < num && num < b);
+    if (a < b) {
+      return (a < num && num < b);
+    } else
+    return (a > num && num > b);
   }
 }
 
@@ -87,9 +90,11 @@ cricket(); // Your score of Cricket is 2
 function getCard(suit) {
   // your code goes here
   return function () {
-    let card = Math.floor(Math.random('2','3','4','5','6','7','8','9','1','0','J','Q', 'K','A').Number(13));
-    console.log(card);
-    //return `Card is: ${card} ${suit}`;
+    let card = [2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A'];
+    function getRandomNumber() {
+      return Math.floor(Math.random() * card.length);
+    }
+    return `Card is: ${card[getRandomNumber()]} ${suit}`;
   }
 }
 
