@@ -76,6 +76,8 @@ var nextMessage = undefined;
 
 // Execution Phase
 console.log(username, numbers);
+username = 'Arya';
+number = 21;
 message = sayHello(username);
 nextMessage = sayHello('Test');
 
@@ -202,13 +204,13 @@ sayHi();
 // Your code goes here
 // Declaration Phase
 function sayHi(name) {
-  console.log(name);
-  console.log(age);
   var name = undefined;
   let age;
 }
 
 // Execution Phase
+console.log(name);
+console.log(age);
 name = 'Lydia';
 age = 21;
 sayHi();
@@ -233,14 +235,14 @@ function sayHi(name) {
 // Your code goes here
 // Declaration Phase
 function sayHi(name) {
-  console.log(name);
-  console.log(age);
   var name = undefined;
   let age;
 }
 
 // Execution Phase
 sayHi();
+console.log(name);
+console.log(age);
 name = 'Lydia';
 age = 21;
 
@@ -268,12 +270,12 @@ let sayHi;
 // Execution Phase
 sayHi();
 sayHi = function sayHi(name) {
-  console.log(name);
-  console.log(age);
   //Function variable declaration
   var name = undefined;
   let age;
   //Function variable execution
+  console.log(name);
+  console.log(age);
   name = 'Lydia';
   age = 21;
 };
