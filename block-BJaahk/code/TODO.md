@@ -7,6 +7,9 @@ The returned function accepts a sentence. If the sentence contains the `fromWord
 ```js
 function censor(fromWord, toWord) {
   //  Your code goes here
+  return function(sentence) {
+    return sentence.replace(fromWord, toWord);
+  }
 }
 
 let censorSentence = censor('World', 'Sam');
@@ -26,6 +29,18 @@ The returned function either accepts two parameter or one parameter.
 ```js
 function multipleCensor() {
   //  Your code goes here
+  let arr = [];
+  return function(para1, para2) {
+    if (para2 !== undefined){
+      arr.push(para1, para2);
+    }else {
+      let string = "";
+      for (let i = 0; i < arr.length; i++){
+        string = para1.replace(arr[i], arr[++i]);
+      }
+      return string;
+    }
+  }
 }
 
 let censorQuote = multipleCensor();
@@ -49,8 +64,13 @@ The returned function accepts one parameter.
 - If the parameter is the same as the password it will return the object in which we stored the values.
 
 ```js
-function createCache() {
+function createCache(cb, password) {
   // Your code goes here
+  return function(para) {
+    if (para !== password) {
+      let obj = {cb(para)};
+    }
+  }
 }
 
 function add10(num) {
