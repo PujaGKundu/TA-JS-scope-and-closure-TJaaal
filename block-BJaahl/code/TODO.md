@@ -3,6 +3,10 @@
 ```js
 function once(cb) {
   // your code goes here
+  return function () {
+    alert ("You can only call me once!");
+    return "can't be called twice";
+  }
 }
 
 // TEST
@@ -19,6 +23,10 @@ log(); // return undefinde (can't be called twice)
 ```js
 function once(cb) {
   // your code goes here
+  return function (para) {
+    alert ("You can only call me once!");
+    return "can't be called twice";
+  }
 }
 
 // TEST
