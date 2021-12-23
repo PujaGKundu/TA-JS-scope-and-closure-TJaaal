@@ -76,6 +76,15 @@ log(); // return undefinde (can't be called twice)
 ```js
 function nTimes(cb, times, ...rest) {
   // your code goes here
+  let noOfTimes = 0;
+  return function() {
+    if(noOfTimes >= times) {
+      alert(`can't be called`);
+    } else {
+      cb(...rest);
+      noOfTimes = noOfTimes + 1;
+    }
+  }
 }
 
 // TEST
